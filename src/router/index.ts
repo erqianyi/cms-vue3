@@ -5,16 +5,20 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/main'
+      redirect: '/main',
     },
     {
       path: '/login',
-      component: () => import('../views/login/Login.vue')
+      component: () => import('../views/login/Login.vue'),
     },
     {
       path: '/main',
       component: () => import('../views/main/Main.vue'),
-    }
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      component: () => import('../views/fallback/not-found.vue'),
+    },
   ],
 })
 
